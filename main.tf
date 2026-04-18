@@ -95,7 +95,7 @@ resource "aws_security_group" "secure_sg" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["YOUR_IP/32"]
+    cidr_blocks = ["54.210.231.33/32"]
   }
 
   egress {
@@ -109,7 +109,7 @@ resource "aws_security_group" "secure_sg" {
 
 # Attach security group to something (required by Checkov)
 resource "aws_instance" "example" {
-  ami           = "ami-12345678"
+  ami           = "ami-098e39bafa7e7303d "
   instance_type = "t2.micro"
 
   vpc_security_group_ids = [aws_security_group.secure_sg.id]
