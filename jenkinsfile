@@ -1,18 +1,23 @@
 pipeline {
-     agent { label 'docker' }
+    agent { label 'docker' }
+
+    environment {
+        PATH = "/home/ubuntu/.local/bin:${env.PATH}"
+    }
 
     stages {
-       stage('Checkout Code') {
-    steps {
-        git branch: 'main',
-            url: 'https://github.com/beniko123/checkov.git'
-    }
-}
+
+        stage('Checkout Code') {
+            steps {
+                git branch: 'main',
+                    url: 'https://github.com/beniko123/checkov.git'
+            }
+        }
 
         stage('Install Checkov') {
             steps {
                 sh '''
-                pip3 install --upgrade checkov
+                pip3 install --user --upgrade checkov
                 '''
             }
         }
