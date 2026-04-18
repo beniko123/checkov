@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'git@github.com:beniko123/checkov.git'
+                git 'https://github.com/beniko123/checkov.git'
             }
         }
 
