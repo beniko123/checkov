@@ -2,12 +2,12 @@ pipeline {
      agent { label 'docker' }
 
     stages {
-        stage('Checkout') {
-            steps {
-                 git branch: 'main'
-                git 'https://github.com/beniko123/checkov.git'
-            }
-        }
+       stage('Checkout Code') {
+    steps {
+        git branch: 'main',
+            url: 'https://github.com/beniko123/checkov.git'
+    }
+}
 
         stage('Install Checkov') {
             steps {
